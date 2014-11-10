@@ -1,0 +1,134 @@
+{% load cms_tags sekizai_tags %}
+<html>
+  <head>
+      <title>{% page_attribute "page_title" %}</title>
+      {% render_block "css" %}
+
+      {% load static %}
+      {% block stylesheets %}
+        {% comment %} Load the Static first {% endcomment %}
+
+
+        <!-- Bootstrap core CSS -->
+        <link  rel="stylesheet" href="{% static "css/bootstrap.min.css" %}" >
+        <link href="{% static "font-awesome/css/font-awesome.min.css" %}" rel="stylesheet">
+        <!-- Custom styles for this template -->
+        <link href="{% static "css/deskgraphics.css" %}"  rel="stylesheet">
+      {% endblock stylesheets %}
+
+
+
+  </head>
+  <body>
+      {% cms_toolbar %}
+      {% block base_home %}
+        <div class="container">
+
+      <header>
+        <a href="" target="_blank">
+          <img src="{% static  "img/logodesk1.png"  %}" alt="Logo" class="logo-img">
+        </a>
+
+        <div class="social-network">
+          <ul>
+            <li><a href="http://facebook.com/"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="http://linkedin.com/"><i class="fa fa-linkedin"></i></a></li>
+            <li><a href="http://twitter.com/"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="http://plus.google.com/"><i class="fa fa-google-plus"></i> </a></li>
+          </ul>
+        </div>
+
+
+      </header>
+
+
+
+
+      <!-- Static navbar -->
+      <div class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+          </div>
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li><a href="#"> <i class="fa fa-home"></i> Home</a></li>
+              <li><a href="#">Empresa</a></li>
+              <li><a href="#">Cursos</a></li>
+              <li><a href="#">Produto</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <i class="fa fa-angle-double-down"></i></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Nav header</li>
+                  <li><a href="#">Separated link</a></li>
+                  <li><a href="#">One more separated link</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Serviços</a></li>
+              <li><a href="#">Contato</a></li>
+            </ul>
+
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </div>
+
+
+      <div id = "carrousel">
+            {% placeholder "test001" or %} There is no content.{% endplaceholder %}
+
+      </div>
+
+        <!-- contenido -->
+        <div class="row">
+            <div class="col-lg-4">
+                {% placeholder "courses_home" or %} There is no content.{% endplaceholder %}
+            </div>
+            <div class="col-lg-4">
+                {% placeholder "suites_home" or %} There is no content.{% endplaceholder %}
+            </div>
+            <div cl ass="col-lg-4">
+                {% placeholder "agenda_home" or %} There is no content.{% endplaceholder %}
+            </div>
+        </div>
+
+
+      <footer id="footer">
+        <div class="container">
+          <p class="text-muted">Place sticky footer content here.</p>
+        </div>
+       </footer>
+
+
+    </div> <!-- /container -->
+
+
+      {% endblock base_home %}
+
+      {% placeholder base_content %}
+      {% block base_content %}
+
+      {% endblock %}
+
+
+      {% render_block "js" %}
+      {% block javascript %}
+        <script type="text/javascript" src="{% static "js/jquery-1.11.1.min.js" %}"></script>
+        <script type="text/javascript" src="{% static "js/bootstrap.min.js" %}"></script>
+          <script type="text/javascript" src="{% static "js/carousel.js" %}"></script>
+      {% endblock javascript %}
+
+
+
+
+  </body>
+</html>
